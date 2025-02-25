@@ -14,14 +14,13 @@ const authRoutes = require('./routes/authRoute');
 
 
 //seeders
-const seedParks = require('./seeders/seedParks')
-const seedSpecies = require('./seeders/seedSpecies');
+
 const TestAgent = require("supertest/lib/agent");
 
 // Database connection
 dbConnect().then(() =>{
-  seedParks();
-  seedSpecies();
+  // seedParks();
+  // seedSpecies();
 });
 // Middleware
 const app = express();
@@ -39,7 +38,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Hello and welcome to iSafari backend to get started visit swagger docs at /api-docs");
+  res.send("Hello and welcome to LexResumeAi backend to get started visit swagger docs at /api-docs");
 });
 app.use("/api/v1/auth", authRoutes);
 
